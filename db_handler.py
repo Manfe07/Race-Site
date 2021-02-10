@@ -39,3 +39,14 @@ mycursor.execute("CREATE TABLE IF NOT EXISTS `racesite`.`Races` ("
 "`raceType_id` INT NOT NULL,"
 "PRIMARY KEY (`id`),"
 "UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)") #Create table "races" if not exsists
+
+def getRaces():
+    return 0
+
+def addTeam(name, short_name='', info=''):
+    mycursor.execute(f"INSERT IGNORE INTO teams (name, name_short, info) VALUES('{name}','{short_name}','{info}')")
+
+    for x in mycursor:
+        print(x)
+    db.commit()
+    return 0
